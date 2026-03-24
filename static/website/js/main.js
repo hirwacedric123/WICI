@@ -69,6 +69,40 @@
     heading.classList.add('text-reveal');
   });
 
+  // Phase 3: stagger card/grid items by page section.
+  const gridItems = document.querySelectorAll('.card-grid > [class*="col-"]');
+  gridItems.forEach((item, index) => {
+    const card = item.querySelector('.info-card, .program-card, .event-card, .impact-card, .content-glass-card');
+    if (!card) return;
+    card.classList.add('reveal', 'reveal-up-soft');
+    card.style.setProperty('--stagger-delay', `${(index % 6) * 70}ms`);
+    card.classList.add('stagger-reveal');
+  });
+
+  // Phase 3: timeline and model cards motion hooks.
+  document.querySelectorAll('.about-timeline-item, .partner-model').forEach((el, index) => {
+    el.classList.add('reveal', 'reveal-left');
+    if (index % 2 === 1) el.classList.replace('reveal-left', 'reveal-right');
+    if (index % 3 === 1) el.classList.add('delay-1');
+    if (index % 3 === 2) el.classList.add('delay-2');
+  });
+
+  // Phase 3: gallery card hover affordance classes.
+  document.querySelectorAll('.media-cover').forEach((media) => {
+    const card = media.closest('.info-card');
+    if (card) card.classList.add('media-gallery-card');
+  });
+
+  // Phase 3: FAQ accordion state class for smoother open/close.
+  document.querySelectorAll('.accordion .accordion-collapse').forEach((collapse) => {
+    collapse.addEventListener('show.bs.collapse', () => {
+      collapse.closest('.accordion-item')?.classList.add('is-open');
+    });
+    collapse.addEventListener('hide.bs.collapse', () => {
+      collapse.closest('.accordion-item')?.classList.remove('is-open');
+    });
+  });
+
   // Phase 2: count up numeric values.
   const statSelectors = '.hero-metric-value, .hero-impact-value';
   const statElements = Array.from(document.querySelectorAll(statSelectors)).filter((el) => /\d/.test(el.textContent || ''));
