@@ -12,13 +12,18 @@
 
 <section class="py-5">
   <div class="container">
-    <div class="row g-4 mb-4">
+    <div class="section-intro">
+      <span class="section-kicker d-inline-flex">Strategic Collaboration</span>
+      <h2 class="mb-2">Organizations advancing shared impact</h2>
+      <p class="text-muted">We work with institutions committed to stronger talent pipelines, inclusive growth, and sustainable infrastructure outcomes.</p>
+    </div>
+    <div class="row g-4 mb-4 card-grid">
       {% for partner in partners_list %}
         <div class="col-md-4">
           <div class="info-card p-4 h-100">
             <div class="image-block mb-3"></div>
             <h2 class="h5">{{ partner.name }}</h2>
-            <p class="text-muted mb-2">{{ partner.category }}</p>
+            <p class="mb-2"><span class="metadata-chip">{{ partner.category }}</span></p>
             <p class="mb-3">{{ partner.description|default:"Strategic collaboration partner of WICI Uganda." }}</p>
             {% if partner.website_url %}
               <a href="{{ partner.website_url }}" target="_blank" rel="noopener noreferrer">Visit website</a>

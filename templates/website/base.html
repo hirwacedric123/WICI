@@ -11,17 +11,17 @@
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-white border-bottom shadow-sm sticky-top">
+    <nav class="navbar navbar-expand-xl sticky-top site-navbar">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'home' %}">
           <img src="{% static 'website/img/logo2.png' %}" alt="WICI Uganda logo" class="brand-logo">
           <span class="brand-name">WICI Uganda</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler site-navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="mainNav">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse site-navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-xl-0 align-items-xl-center site-navbar-links">
             <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'programs' %}">Programs</a></li>
@@ -32,13 +32,16 @@
             <li class="nav-item"><a class="nav-link" href="{% url 'membership' %}">Membership</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'partners' %}">Partners</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            <li class="nav-item site-navbar-cta-wrap">
+              <a class="btn btn-brand site-navbar-cta" href="{% url 'membership' %}">Join Now</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
   </header>
 
-  <main>
+  <main class="site-main">
     {% block content %}{% endblock %}
   </main>
 
@@ -65,7 +68,7 @@
           <p class="mb-0">+256 700 000 000</p>
         </div>
       </div>
-      <hr>
+      <hr class="site-footer-divider">
       <p class="small mb-0">&copy; {% now "Y" %} WICI Uganda. All rights reserved.</p>
     </div>
   </footer>

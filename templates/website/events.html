@@ -12,16 +12,22 @@
 
 <section class="py-5">
   <div class="container">
+    <div class="section-intro">
+      <span class="section-kicker d-inline-flex">Event Calendar</span>
+      <h2 class="mb-2">Connect, learn, and collaborate</h2>
+      <p class="text-muted">From technical sessions to leadership forums, our events bring together women professionals and sector partners.</p>
+    </div>
     <h2 class="mb-4">Upcoming Events</h2>
-    <div class="row g-4 mb-5">
+    <div class="row g-4 mb-5 card-grid">
       {% for event in upcoming_events %}
         <div class="col-md-6">
-          <div class="event-card p-4 h-100">
+          <article class="event-card p-4 h-100">
             <div class="image-block mb-3"></div>
+            <p class="mb-2"><span class="metadata-chip">Upcoming</span></p>
             <p class="event-date mb-2">{{ event.event_date|date:"F Y" }}{% if event.location %} | {{ event.location }}{% endif %}</p>
             <h3 class="h5">{{ event.title }}</h3>
             <p class="mb-0">{{ event.summary|default:event.details }}</p>
-          </div>
+          </article>
         </div>
       {% empty %}
         <div class="col-12"><div class="event-card p-4"><p class="mb-0">No upcoming events published yet.</p></div></div>
@@ -29,15 +35,16 @@
     </div>
 
     <h2 class="mb-4">Recent Highlights</h2>
-    <div class="row g-4">
+    <div class="row g-4 card-grid">
       {% for event in recent_events %}
         <div class="col-md-4">
-          <div class="program-card p-4 h-100">
+          <article class="program-card p-4 h-100">
             <div class="image-block mb-3"></div>
+            <p class="mb-2"><span class="metadata-chip">Highlight</span></p>
             <h3 class="h6">{{ event.title }}</h3>
             <p class="mb-2 text-muted">{{ event.event_date|date:"M d, Y" }}</p>
             <p class="mb-0">{{ event.summary|default:event.details }}</p>
-          </div>
+          </article>
         </div>
       {% empty %}
         <div class="col-12"><div class="program-card p-4"><p class="mb-0">Recent event highlights will appear here.</p></div></div>

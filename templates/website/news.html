@@ -10,13 +10,19 @@
   </div>
 </section>
 
-<section class="py-5">
+<section class="py-5 surface-soft">
   <div class="container">
-    <div class="row g-4">
+    <div class="section-intro">
+      <span class="section-kicker d-inline-flex">Latest Briefings</span>
+      <h2 class="mb-2">Industry updates and chapter milestones</h2>
+      <p class="text-muted">Stay informed on events, partnerships, and stories that shape women's participation in Uganda's infrastructure sector.</p>
+    </div>
+    <div class="row g-4 card-grid">
       {% for item in updates %}
         <div class="col-lg-6">
           <article class="program-card p-4 h-100">
             <div class="image-block mb-3"></div>
+            <p class="mb-2"><span class="metadata-chip">News</span></p>
             <p class="mb-2 text-muted">{{ item.published_at|date:"M d, Y" }}{% if item.author %} | By {{ item.author }}{% endif %}</p>
             <h2 class="h5">{{ item.title }}</h2>
             <p class="mb-0">{{ item.summary|default:item.body|truncatechars:220 }}</p>

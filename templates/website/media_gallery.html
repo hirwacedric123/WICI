@@ -10,16 +10,21 @@
   </div>
 </section>
 
-<section class="py-5">
+<section class="py-5 surface-soft">
   <div class="container">
-    <div class="row g-4">
+    <div class="section-intro">
+      <span class="section-kicker d-inline-flex">Visual Highlights</span>
+      <h2 class="mb-2">Moments from our community and programs</h2>
+      <p class="text-muted">Explore snapshots from events and partnerships that reflect WICI Uganda's mission in action.</p>
+    </div>
+    <div class="row g-4 card-grid">
       {% for item in media_items %}
         <div class="col-md-6 col-lg-4">
           <div class="info-card h-100 overflow-hidden">
             {% if item.image_url %}
-              <img src="{{ item.image_url }}" class="img-fluid" alt="{{ item.title }}">
+              <img src="{{ item.image_url }}" class="media-cover" alt="{{ item.title }}">
             {% else %}
-              <div class="image-block"></div>
+              <div class="image-block media-cover"></div>
             {% endif %}
             <div class="p-3">
               <h2 class="h6 mb-1">{{ item.title }}</h2>
