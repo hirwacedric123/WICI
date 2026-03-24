@@ -1,0 +1,35 @@
+# App: wici  →  https://wici.fly.dev  |  custom domain: wiciug.org
+#   fly volumes create data --region cdg --size 1
+#   DJANGO_SECRET_KEY: use stdlib (no Django on host): python3 -c "import secrets; print(secrets.token_urlsafe(50))"
+#   fly secrets set DJANGO_SECRET_KEY="$(python3 -c 'import secrets; print(secrets.token_urlsafe(50))')" \
+#     DJANGO_DEBUG=False \
+#     DJANGO_ALLOWED_HOSTS="wici.fly.dev,wiciug.org,www.wiciug.org" \
+#     DJANGO_CSRF_TRUSTED_ORIGINS="https://wici.fly.dev,https://wiciug.org,https://www.wiciug.org"
+#   fly certs add wiciug.org
+#   fly certs add www.wiciug.org
+#   fly deploy
+
+app = "wici"
+primary_region = "cdg"
+
+[build]
+
+[env]
+  DATABASE_PATH = "/data/db.sqlite3"
+  PORT = "8000"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+
+[[vm]]
+  memory = "512mb"
+  cpu_kind = "shared"
+  cpus = 1
+
+[mounts]
+  source = "data"
+  destination = "/data"
