@@ -32,7 +32,7 @@
         <div class="col-md-6 col-lg-4">
           <div class="info-card h-100 overflow-hidden">
             {% if item.image_url %}
-              <img src="{{ item.image_url }}" class="media-cover" alt="{{ item.title }}">
+              <img src="{{ item.image_url }}" class="media-cover js-lightbox-trigger" alt="{{ item.title|escape }}" data-lightbox-src="{{ item.image_url|escape }}" data-lightbox-caption="{{ item.title|escape }}{% if item.event_name %} - {{ item.event_name|escape }}{% endif %}">
             {% else %}
               <div class="image-block image-fill-hero media-cover"></div>
             {% endif %}

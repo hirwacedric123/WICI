@@ -20,6 +20,7 @@
   if (!body) return;
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobileViewport = window.matchMedia('(max-width: 991.98px)').matches;
   if (prefersReducedMotion) {
     body.classList.add('reduced-motion');
   }
@@ -50,7 +51,7 @@
               observer.unobserve(entry.target);
             });
           },
-          { threshold: 0.14, rootMargin: '0px 0px -5% 0px' }
+          { threshold: isMobileViewport ? 0.06 : 0.14, rootMargin: isMobileViewport ? '0px 0px -2% 0px' : '0px 0px -5% 0px' }
         )
       : null;
 
@@ -102,6 +103,171 @@
       collapse.closest('.accordion-item')?.classList.remove('is-open');
     });
   });
+
+  // Phase 4: subtle parallax on key hero/featured surfaces.
+  if (!prefersReducedMotion && !isMobileViewport) {
+    const parallaxTargets = document.querySelectorAll('.hero-section, .page-header, .program-section-glass');
+    if (parallaxTargets.length > 0) {
+      let rafId = null;
+      const updateParallax = () => {
+        const viewportHeight = window.innerHeight || 1;
+        parallaxTargets.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.bottom < 0 || rect.top > viewportHeight) return;
+          const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
+          const shift = (progress - 0.5) * 18;
+          el.style.setProperty('--parallax-shift', `${shift.toFixed(2)}px`);
+        });
+        rafId = null;
+      };
+
+      const onParallaxScroll = () => {
+        if (rafId !== null) return;
+        rafId = window.requestAnimationFrame(updateParallax);
+      };
+
+      onParallaxScroll();
+      window.addEventListener('scroll', onParallaxScroll, { passive: true });
+      window.addEventListener('resize', onParallaxScroll, { passive: true });
+    }
+  }
+
+  // Phase 5: progressive image loading polish.
+  const contentImages = document.querySelectorAll('main img');
+  contentImages.forEach((img) => {
+    if (!img.getAttribute('loading')) img.setAttribute('loading', 'lazy');
+    img.setAttribute('decoding', 'async');
+    img.classList.add('img-loading');
+
+    const markLoaded = () => {
+      img.classList.remove('img-loading');
+      img.classList.add('is-loaded');
+    };
+
+    if (img.complete) {
+      markLoaded();
+    } else {
+      img.addEventListener('load', markLoaded, { once: true });
+      img.addEventListener(
+        'error',
+        () => {
+          img.classList.remove('img-loading');
+        },
+        { once: true }
+      );
+    }
+  });
+
+  // Phase 4: resource and news card filtering with transitions.
+  const setupCardFilter = ({ inputSelector, cardSelector, valueSource }) => {
+    const input = document.querySelector(inputSelector);
+    const cards = Array.from(document.querySelectorAll(cardSelector));
+    if (!input || cards.length === 0) return;
+
+    input.removeAttribute('disabled');
+    input.addEventListener('input', (event) => {
+      const term = String(event.target.value || '').trim().toLowerCase();
+      cards.forEach((card) => {
+        const value = valueSource(card).toLowerCase();
+        const match = term === '' || value.includes(term);
+        card.classList.toggle('is-filter-hidden', !match);
+      });
+    });
+  };
+
+  setupCardFilter({
+    inputSelector: '#resourceSearch',
+    cardSelector: '[data-resource-card]',
+    valueSource: (card) => `${card.dataset.title || ''} ${card.dataset.category || ''} ${card.dataset.type || ''}`
+  });
+
+  setupCardFilter({
+    inputSelector: '#newsSearch',
+    cardSelector: '[data-news-card]',
+    valueSource: (card) => `${card.dataset.title || ''} ${card.dataset.author || ''} ${card.dataset.date || ''}`
+  });
+
+  // Phase 4: event section switcher (upcoming/recent) with smooth transitions.
+  const eventFilters = document.querySelectorAll('[data-event-filter]');
+  if (eventFilters.length > 0) {
+    const groups = {
+      upcoming: document.querySelector('[data-event-group="upcoming"]'),
+      recent: document.querySelector('[data-event-group="recent"]')
+    };
+
+    const setActiveGroup = (groupName) => {
+      Object.entries(groups).forEach(([name, section]) => {
+        if (!section) return;
+        const isActive = name === groupName || groupName === 'all';
+        section.classList.toggle('is-filter-hidden', !isActive);
+      });
+      eventFilters.forEach((btn) => {
+        const isActive = btn.getAttribute('data-event-filter') === groupName;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
+      });
+    };
+
+    setActiveGroup('all');
+    eventFilters.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-event-filter') || 'all';
+        setActiveGroup(target);
+      });
+    });
+  }
+
+  // Phase 4: lightweight media lightbox.
+  const lightboxTriggers = document.querySelectorAll('.js-lightbox-trigger');
+  if (lightboxTriggers.length > 0) {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'media-lightbox';
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightbox.innerHTML = `
+      <button type="button" class="media-lightbox-close" aria-label="Close media preview">&times;</button>
+      <figure class="media-lightbox-figure">
+        <img class="media-lightbox-image" alt="">
+        <figcaption class="media-lightbox-caption"></figcaption>
+      </figure>
+    `;
+    document.body.appendChild(lightbox);
+
+    const image = lightbox.querySelector('.media-lightbox-image');
+    const caption = lightbox.querySelector('.media-lightbox-caption');
+    const closeButton = lightbox.querySelector('.media-lightbox-close');
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lightbox-open');
+      window.setTimeout(() => {
+        if (image) image.setAttribute('src', '');
+      }, 220);
+    };
+
+    lightboxTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const src = trigger.getAttribute('data-lightbox-src') || '';
+        if (!src || !image || !caption) return;
+        image.setAttribute('src', src);
+        image.setAttribute('alt', trigger.getAttribute('alt') || 'Gallery image');
+        caption.textContent = trigger.getAttribute('data-lightbox-caption') || '';
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('lightbox-open');
+      });
+    });
+
+    closeButton?.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+        closeLightbox();
+      }
+    });
+  }
 
   // Phase 2: count up numeric values.
   const statSelectors = '.hero-metric-value, .hero-impact-value';
