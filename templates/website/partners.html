@@ -1,0 +1,40 @@
+{% extends 'website/base.html' %}
+
+{% block title %}Partners | WICI Uganda{% endblock %}
+
+{% block content %}
+<section class="py-5 page-header">
+  <div class="container">
+    <h1>Partners</h1>
+    <p class="lead mb-0">We collaborate with institutions that believe in inclusive infrastructure growth and leadership.</p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4 mb-4">
+      {% for partner in partners_list %}
+        <div class="col-md-4">
+          <div class="info-card p-4 h-100">
+            <div class="image-block mb-3"></div>
+            <h2 class="h5">{{ partner.name }}</h2>
+            <p class="text-muted mb-2">{{ partner.category }}</p>
+            <p class="mb-3">{{ partner.description|default:"Strategic collaboration partner of WICI Uganda." }}</p>
+            {% if partner.website_url %}
+              <a href="{{ partner.website_url }}" target="_blank" rel="noopener noreferrer">Visit website</a>
+            {% endif %}
+          </div>
+        </div>
+      {% empty %}
+        <div class="col-12"><div class="info-card p-4"><p class="mb-0">Partner profiles will appear here once published in admin.</p></div></div>
+      {% endfor %}
+    </div>
+
+    <div class="cta-section p-4 p-md-5 text-center rounded-3">
+      <h2 class="mb-3">Let's Build Sustainable Partnerships</h2>
+      <p class="mb-4">Work with WICI Uganda to design programs, events, and interventions that produce real outcomes.</p>
+      <a href="{% url 'contact' %}" class="btn btn-brand">Discuss Partnership</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

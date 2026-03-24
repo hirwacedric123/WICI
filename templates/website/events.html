@@ -1,0 +1,48 @@
+{% extends 'website/base.html' %}
+
+{% block title %}Events | WICI Uganda{% endblock %}
+
+{% block content %}
+<section class="py-5 page-header">
+  <div class="container">
+    <h1>Events</h1>
+    <p class="lead mb-0">Explore our upcoming and recent engagements across Uganda's construction and infrastructure ecosystem.</p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="mb-4">Upcoming Events</h2>
+    <div class="row g-4 mb-5">
+      {% for event in upcoming_events %}
+        <div class="col-md-6">
+          <div class="event-card p-4 h-100">
+            <div class="image-block mb-3"></div>
+            <p class="event-date mb-2">{{ event.event_date|date:"F Y" }}{% if event.location %} | {{ event.location }}{% endif %}</p>
+            <h3 class="h5">{{ event.title }}</h3>
+            <p class="mb-0">{{ event.summary|default:event.details }}</p>
+          </div>
+        </div>
+      {% empty %}
+        <div class="col-12"><div class="event-card p-4"><p class="mb-0">No upcoming events published yet.</p></div></div>
+      {% endfor %}
+    </div>
+
+    <h2 class="mb-4">Recent Highlights</h2>
+    <div class="row g-4">
+      {% for event in recent_events %}
+        <div class="col-md-4">
+          <div class="program-card p-4 h-100">
+            <div class="image-block mb-3"></div>
+            <h3 class="h6">{{ event.title }}</h3>
+            <p class="mb-2 text-muted">{{ event.event_date|date:"M d, Y" }}</p>
+            <p class="mb-0">{{ event.summary|default:event.details }}</p>
+          </div>
+        </div>
+      {% empty %}
+        <div class="col-12"><div class="program-card p-4"><p class="mb-0">Recent event highlights will appear here.</p></div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

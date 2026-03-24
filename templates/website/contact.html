@@ -1,0 +1,69 @@
+{% extends 'website/base.html' %}
+
+{% block title %}Contact | WICI Uganda{% endblock %}
+
+{% block content %}
+<section class="py-5 page-header">
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p class="lead mb-0">Reach out for membership, partnerships, events, or general inquiries.</p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-7">
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+        <form class="contact-form p-4" method="post">
+          {% csrf_token %}
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="{{ form.full_name.id_for_label }}" class="form-label">Full Name</label>
+              {{ form.full_name }}
+            </div>
+            <div class="col-md-6">
+              <label for="{{ form.email.id_for_label }}" class="form-label">Email Address</label>
+              {{ form.email }}
+            </div>
+            <div class="col-md-6">
+              <label for="{{ form.organization.id_for_label }}" class="form-label">Organization</label>
+              {{ form.organization }}
+            </div>
+            <div class="col-md-6">
+              <label for="{{ form.inquiry_type.id_for_label }}" class="form-label">Inquiry Type</label>
+              {{ form.inquiry_type }}
+            </div>
+            <div class="col-12">
+              <label for="{{ form.message.id_for_label }}" class="form-label">Message</label>
+              {{ form.message }}
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-brand">Send Message</button>
+            </div>
+          </div>
+          {% if form.errors %}
+            <div class="alert alert-danger mt-3 mb-0" role="alert">
+              Please correct the highlighted fields and submit again.
+            </div>
+          {% endif %}
+        </form>
+      </div>
+      <div class="col-lg-5">
+        <div class="info-card p-4 h-100">
+          <div class="image-block mb-3"></div>
+          <h2 class="h5">Office & Contacts</h2>
+          <p class="mb-2"><strong>Address:</strong> Kampala, Uganda</p>
+          <p class="mb-2"><strong>Email:</strong> info@wiciuganda.org</p>
+          <p class="mb-2"><strong>Phone:</strong> +256 700 000 000</p>
+          <p class="mb-0"><strong>Hours:</strong> Mon - Fri, 8:00 AM - 5:00 PM</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

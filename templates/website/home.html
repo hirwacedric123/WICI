@@ -1,0 +1,197 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block title %}Home | WICI Uganda{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+  <div class="hero-content-panel">
+    <div class="container hero-inner">
+      <div class="row g-4 align-items-center hero-layout">
+        <div class="col-lg-7">
+          <div class="hero-stack">
+            <span class="badge badge-brand mb-3">Professional Platform for Women in Construction</span>
+            <h1 class="hero-title mb-3">Building Uganda's Future Through Women in Construction and Infrastructure</h1>
+            <p class="lead mb-4">WICI Uganda connects professionals, institutions, and partners to strengthen leadership, skills, and opportunities for women across the construction and infrastructure sector.</p>
+            <div class="d-flex gap-3 flex-wrap hero-cta-group">
+              <a class="btn btn-brand" href="{% url 'membership' %}">Join Membership</a>
+              <a class="btn btn-outline-brand" href="{% url 'partners' %}">Become a Partner</a>
+            </div>
+            <div class="hero-audience mt-4">
+              <p class="mb-1 fw-semibold">Serving key stakeholders:</p>
+              <p class="mb-0">Women professionals, government agencies, development partners, private sector contractors, and young professionals.</p>
+            </div>
+            <div class="hero-metrics mt-4">
+              <div class="hero-metric-item">
+                <span class="hero-metric-value">5+</span>
+                <span class="hero-metric-label">Audience Groups</span>
+              </div>
+              <div class="hero-metric-item">
+                <span class="hero-metric-value">100%</span>
+                <span class="hero-metric-label">Industry Focused</span>
+              </div>
+              <div class="hero-metric-item">
+                <span class="hero-metric-value">National</span>
+                <span class="hero-metric-label">Uganda Chapter</span>
+              </div>
+            </div>
+            <div class="hero-trust-band mt-4">
+              <span>Trusted by professionals</span>
+              <span>Policy and industry engagement</span>
+              <span>Career and leadership growth</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <aside class="hero-impact-card ms-lg-auto">
+            <span class="hero-impact-kicker">Impact at a Glance</span>
+            <h2 class="h4 mb-2">Supporting women to lead in infrastructure</h2>
+            <p class="mb-4 hero-impact-copy">Practical programs and partnerships that strengthen visibility, leadership, and sector collaboration across Uganda.</p>
+            <div class="hero-impact-stats">
+              <div class="hero-impact-stat">
+                <span class="hero-impact-value">500+</span>
+                <span class="hero-impact-label">Women reached</span>
+              </div>
+              <div class="hero-impact-stat">
+                <span class="hero-impact-value">20+</span>
+                <span class="hero-impact-label">Institutional partners</span>
+              </div>
+              <div class="hero-impact-stat">
+                <span class="hero-impact-value">10+</span>
+                <span class="hero-impact-label">Programs and events</span>
+              </div>
+            </div>
+            <a class="btn btn-brand mt-4" href="{% url 'programs' %}">View Programs</a>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 section-soft section-glass">
+  <div class="container">
+    <div class="row g-4 align-items-center mb-5">
+      <div class="col-lg-6">
+        <div class="platform-visual-wrap">
+          <div class="platform-feature-image" role="img" aria-label="Women professionals on an infrastructure project site"></div>
+          <div class="platform-visual-badge">
+            <span class="platform-visual-value">Trusted Network</span>
+            <span class="platform-visual-label">Built for professional growth and sector collaboration.</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <span class="section-kicker mb-3 d-inline-flex">Why WICI Uganda</span>
+        <h2 class="mb-3">A platform built for visibility, credibility, and impact</h2>
+        <p class="text-muted mb-4">WICI Uganda brings members, institutions, and partners into one coordinated ecosystem for collaboration, advocacy, and measurable professional growth.</p>
+        <div class="platform-highlights">
+          <span>National professional network</span>
+          <span>Mentorship and practical learning</span>
+          <span>Strong institutional partnerships</span>
+        </div>
+      </div>
+    </div>
+    <div class="row g-4 card-grid">
+      <div class="col-md-4">
+        <div class="info-card p-4 h-100 platform-info-card">
+          <div class="platform-card-image platform-card-image-who" role="img" aria-label="Women professionals collaborating"></div>
+          <h3 class="h4">Who We Are</h3>
+          <p class="mb-0">A credible industry chapter championing women professionals in construction and infrastructure across Uganda.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="info-card p-4 h-100 platform-info-card">
+          <div class="platform-card-image platform-card-image-what" role="img" aria-label="Training and mentorship engagement"></div>
+          <h3 class="h4">What We Do</h3>
+          <p class="mb-0">We run programs, symposiums, mentorship, and strategic engagement that strengthen the sector and its workforce.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="info-card p-4 h-100 platform-info-card">
+          <div class="platform-card-image platform-card-image-involved" role="img" aria-label="Partners joining sector initiatives"></div>
+          <h3 class="h4">Get Involved</h3>
+          <p class="mb-0">Join as a member, partner on initiatives, or support our mission through collaboration and sponsorship.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 impact-section">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="mb-2">Driving measurable sector impact</h2>
+      <p class="text-muted mb-0">A practical model that combines leadership development, technical excellence, and multi-stakeholder collaboration.</p>
+    </div>
+    <div class="row g-4 card-grid">
+      <div class="col-md-4">
+        <div class="impact-card p-4 h-100">
+          <span class="impact-kicker">Capability</span>
+          <h3 class="h5 mb-2">Leadership and professional advancement</h3>
+          <p class="mb-0">Mentorship and learning pathways designed to prepare women for high-impact technical and strategic roles.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="impact-card p-4 h-100">
+          <span class="impact-kicker">Collaboration</span>
+          <h3 class="h5 mb-2">Partnerships across public and private sectors</h3>
+          <p class="mb-0">Linking institutions and industry actors to co-create initiatives that support inclusive infrastructure delivery.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="impact-card p-4 h-100">
+          <span class="impact-kicker">Influence</span>
+          <h3 class="h5 mb-2">Voice in policy and sector dialogue</h3>
+          <p class="mb-0">Providing structured engagement channels that elevate women professionals in national development conversations.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 program-section-glass">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+      <h2 class="mb-0">Featured Programs</h2>
+      <a href="{% url 'programs' %}" class="text-decoration-none view-link">View all programs</a>
+    </div>
+    <div class="row g-4 card-grid">
+      <div class="col-md-4">
+        <article class="program-card p-4 h-100 program-feature-card">
+          <div class="program-media program-media-leadership mb-3" role="img" aria-label="Leadership development in construction and infrastructure"></div>
+          <span class="program-chip mb-2">Leadership Track</span>
+          <h3 class="h5">Leadership Development</h3>
+          <p class="mb-0">Equipping women for leadership roles in projects, policy, and operations.</p>
+        </article>
+      </div>
+      <div class="col-md-4">
+        <article class="program-card p-4 h-100 program-feature-card">
+          <div class="program-media program-media-technical mb-3" role="img" aria-label="Technical training and practical skills development"></div>
+          <span class="program-chip mb-2">Skills Track</span>
+          <h3 class="h5">Technical Training</h3>
+          <p class="mb-0">Industry-relevant capacity building to strengthen practical and digital skills.</p>
+        </article>
+      </div>
+      <div class="col-md-4">
+        <article class="program-card p-4 h-100 program-feature-card">
+          <div class="program-media program-media-networking mb-3" role="img" aria-label="Industry networking and multi-stakeholder collaboration"></div>
+          <span class="program-chip mb-2">Network Track</span>
+          <h3 class="h5">Industry Networking</h3>
+          <p class="mb-0">Connecting professionals with government, private sector, and development partners.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container text-center">
+    <div class="cta-section p-4 p-lg-5">
+      <h2 class="mb-3 text-white">Partner with WICI Uganda for Real Infrastructure Impact</h2>
+      <p class="mb-4">Collaborate with us on capacity building, policy dialogue, and inclusive sector growth.</p>
+      <a class="btn btn-brand" href="{% url 'contact' %}">Contact Us</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
