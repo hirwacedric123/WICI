@@ -17,19 +17,50 @@
       <h2 class="mb-2">Practical resources for learning and growth</h2>
       <p class="text-muted">Browse curated materials that support technical capability, leadership development, and career progression.</p>
     </div>
+    <div class="resource-toolbar content-glass-card p-3 mb-4">
+      <div class="row g-2 align-items-center">
+        <div class="col-lg-5">
+          <label for="resourceSearch" class="form-label mb-1">Search resources</label>
+          <input id="resourceSearch" type="text" class="form-control" placeholder="Search by title or topic" disabled>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <label for="resourceCategory" class="form-label mb-1">Category</label>
+          <select id="resourceCategory" class="form-select" disabled>
+            <option>All categories</option>
+          </select>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <label for="resourceType" class="form-label mb-1">Type</label>
+          <select id="resourceType" class="form-select" disabled>
+            <option>All types</option>
+          </select>
+        </div>
+        <div class="col-lg-2 d-flex align-items-end">
+          <button class="btn btn-outline-dark w-100" disabled>Filter</button>
+        </div>
+      </div>
+    </div>
     <div class="row g-4 card-grid">
       {% for resource in resource_items %}
         <div class="col-md-6 col-lg-4">
           <div class="program-card p-4 h-100">
-            <div class="image-block mb-3"></div>
+            <div class="image-block image-fill-what mb-3"></div>
             <h2 class="h5">{{ resource.title }}</h2>
-            <p class="mb-2"><span class="metadata-chip">{{ resource.category }}</span></p>
+            <p class="mb-2 d-flex flex-wrap gap-2">
+              <span class="metadata-chip">{{ resource.category }}</span>
+              <span class="metadata-chip metadata-chip-muted">Resource</span>
+            </p>
             <p class="mb-3">{{ resource.description|truncatechars:160 }}</p>
             <a href="{{ resource.resource_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-dark">Open Resource</a>
           </div>
         </div>
       {% empty %}
-        <div class="col-12"><div class="info-card p-4"><p class="mb-0">Resource items will appear here once published in admin.</p></div></div>
+        <div class="col-12">
+          <div class="info-card p-4 empty-state-card">
+            <p class="mb-2">Resource items will appear here once published in admin.</p>
+            <a href="{% url 'contact' %}" class="btn btn-sm btn-outline-dark">Request a Resource</a>
+          </div>
+        </div>
       {% endfor %}
     </div>
   </div>

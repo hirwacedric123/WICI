@@ -21,7 +21,7 @@
       {% for partner in partners_list %}
         <div class="col-md-4">
           <div class="info-card p-4 h-100">
-            <div class="image-block mb-3"></div>
+            <div class="image-block image-fill-involved mb-3"></div>
             <h2 class="h5">{{ partner.name }}</h2>
             <p class="mb-2"><span class="metadata-chip">{{ partner.category }}</span></p>
             <p class="mb-3">{{ partner.description|default:"Strategic collaboration partner of WICI Uganda." }}</p>
@@ -31,8 +31,44 @@
           </div>
         </div>
       {% empty %}
-        <div class="col-12"><div class="info-card p-4"><p class="mb-0">Partner profiles will appear here once published in admin.</p></div></div>
+        <div class="col-12">
+          <div class="info-card p-4 empty-state-card">
+            <p class="mb-2">Partner profiles will appear here once published in admin.</p>
+            <a href="{% url 'contact' %}" class="btn btn-sm btn-outline-dark">Discuss a Partnership</a>
+          </div>
+        </div>
       {% endfor %}
+    </div>
+
+    <div class="content-glass-card p-4 p-lg-5 mb-4">
+      <div class="section-intro mb-3">
+        <span class="section-kicker d-inline-flex">Partnership Models</span>
+        <h2 class="mb-2">Flexible ways to collaborate</h2>
+        <p class="text-muted">We design practical partnerships that align with sector goals, organizational mandates, and measurable outcomes.</p>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="partner-model p-3 h-100">
+            <span class="metadata-chip mb-2">Model A</span>
+            <h3 class="h6 mb-1">Program Co-Delivery</h3>
+            <p class="mb-0">Co-create learning, mentorship, and sector engagement initiatives.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="partner-model p-3 h-100">
+            <span class="metadata-chip mb-2">Model B</span>
+            <h3 class="h6 mb-1">Strategic Sponsorship</h3>
+            <p class="mb-0">Support high-impact events and long-term women leadership pathways.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="partner-model p-3 h-100">
+            <span class="metadata-chip mb-2">Model C</span>
+            <h3 class="h6 mb-1">Knowledge Partnership</h3>
+            <p class="mb-0">Contribute technical expertise, data, and thought leadership content.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="cta-section p-4 p-md-5 text-center rounded-3">

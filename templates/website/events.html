@@ -22,7 +22,7 @@
       {% for event in upcoming_events %}
         <div class="col-md-6">
           <article class="event-card p-4 h-100">
-            <div class="image-block mb-3"></div>
+            <div class="image-block image-fill-platform mb-3"></div>
             <p class="mb-2"><span class="metadata-chip">Upcoming</span></p>
             <p class="event-date mb-2">{{ event.event_date|date:"F Y" }}{% if event.location %} | {{ event.location }}{% endif %}</p>
             <h3 class="h5">{{ event.title }}</h3>
@@ -39,7 +39,7 @@
       {% for event in recent_events %}
         <div class="col-md-4">
           <article class="program-card p-4 h-100">
-            <div class="image-block mb-3"></div>
+            <div class="image-block image-fill-involved mb-3"></div>
             <p class="mb-2"><span class="metadata-chip">Highlight</span></p>
             <h3 class="h6">{{ event.title }}</h3>
             <p class="mb-2 text-muted">{{ event.event_date|date:"M d, Y" }}</p>

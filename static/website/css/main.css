@@ -319,6 +319,40 @@ button:focus-visible,
   -webkit-backdrop-filter: blur(8px);
 }
 
+.hero-update-strip {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.7rem;
+  max-width: 50rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.11);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.hero-update-strip p {
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 0.9rem;
+}
+
+.hero-update-links {
+  display: inline-flex;
+  gap: 0.6rem;
+}
+
+.hero-update-links a {
+  color: #f9e29d;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.hero-update-links a:hover,
+.hero-update-links a:focus {
+  text-decoration: underline;
+}
+
 .hero-impact-card {
   background: linear-gradient(165deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
   border: 1px solid rgba(255, 255, 255, 0.34);
@@ -552,6 +586,159 @@ button:focus-visible,
   padding: 0.25rem 0.6rem;
 }
 
+.metadata-chip-muted {
+  background: rgba(16, 42, 67, 0.08);
+  border-color: rgba(16, 42, 67, 0.18);
+  color: var(--wici-navy);
+}
+
+.leader-card-footer {
+  padding-top: 0.6rem;
+  border-top: 1px dashed rgba(16, 42, 67, 0.18);
+}
+
+.resource-toolbar .form-control,
+.resource-toolbar .form-select {
+  border-radius: 0.7rem;
+}
+
+.resource-toolbar .form-label {
+  color: var(--wici-navy);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.contact-helper-text {
+  font-size: 0.92rem;
+  color: var(--wici-muted);
+}
+
+.contact-alert {
+  border-radius: 0.8rem;
+}
+
+.contact-form .form-label {
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: var(--wici-navy);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid rgba(16, 42, 67, 0.2);
+  border-radius: 0.72rem;
+  padding: 0.62rem 0.72rem;
+  background: rgba(255, 255, 255, 0.9);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: rgba(16, 42, 67, 0.45);
+  box-shadow: 0 0 0 3px rgba(16, 42, 67, 0.1);
+}
+
+.contact-form .errorlist {
+  margin: 0.45rem 0 0;
+  padding-left: 1rem;
+  color: #a31212;
+  font-size: 0.86rem;
+}
+
+.contact-faq .accordion-item {
+  border: 1px solid rgba(16, 42, 67, 0.11);
+  border-radius: 0.75rem;
+  margin-bottom: 0.55rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.contact-accordion .accordion-button {
+  font-weight: 600;
+  color: var(--wici-navy);
+  background: transparent;
+}
+
+.contact-accordion .accordion-button:not(.collapsed) {
+  color: var(--wici-navy);
+  background: rgba(16, 42, 67, 0.05);
+  box-shadow: none;
+}
+
+.contact-accordion .accordion-button:focus {
+  box-shadow: inset 0 0 0 2px rgba(16, 42, 67, 0.18);
+}
+
+.contact-accordion .accordion-body {
+  color: var(--wici-muted);
+  line-height: 1.65;
+}
+
+.contact-quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.contact-quick-actions .btn {
+  border-radius: 999px;
+}
+
+.contact-trust-note {
+  color: var(--wici-muted);
+  font-size: 0.9rem;
+}
+
+.membership-steps .content-glass-card,
+.partner-model {
+  border-radius: 0.9rem;
+  border: 1px solid rgba(16, 42, 67, 0.1);
+}
+
+.partner-model {
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.partner-model p,
+.membership-steps p {
+  color: var(--wici-muted);
+}
+
+.empty-state-card {
+  text-align: center;
+  border-style: dashed;
+}
+
+.empty-state-card .btn {
+  border-radius: 999px;
+}
+
+.about-timeline {
+  border-left: 2px solid rgba(16, 42, 67, 0.16);
+  padding-left: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.about-timeline-item {
+  position: relative;
+}
+
+.about-timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -1.35rem;
+  top: 0.32rem;
+  width: 0.58rem;
+  height: 0.58rem;
+  border-radius: 999px;
+  background: var(--wici-gold);
+}
+
 .site-footer-divider {
   border-color: rgba(255, 255, 255, 0.17);
 }
@@ -764,6 +951,36 @@ button:focus-visible,
   background-size: cover;
   background-position: center;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+}
+
+.image-fill-who {
+  background-image:
+    linear-gradient(150deg, rgba(16, 42, 67, 0.2), rgba(16, 42, 67, 0.08)),
+    url("../img/placeholders/card-who-we-are.png");
+}
+
+.image-fill-what {
+  background-image:
+    linear-gradient(150deg, rgba(16, 42, 67, 0.2), rgba(16, 42, 67, 0.08)),
+    url("../img/placeholders/card-what-we-do.png");
+}
+
+.image-fill-involved {
+  background-image:
+    linear-gradient(150deg, rgba(16, 42, 67, 0.2), rgba(16, 42, 67, 0.08)),
+    url("../img/placeholders/card-get-involved.png");
+}
+
+.image-fill-platform {
+  background-image:
+    linear-gradient(150deg, rgba(16, 42, 67, 0.24), rgba(16, 42, 67, 0.1)),
+    url("../img/placeholders/section-platform-main.png");
+}
+
+.image-fill-hero {
+  background-image:
+    linear-gradient(150deg, rgba(16, 42, 67, 0.24), rgba(16, 42, 67, 0.1)),
+    url("../img/placeholders/hero-bg.png");
 }
 
 .info-card,
@@ -1062,6 +1279,23 @@ button:focus-visible,
 
   .hero-trust-band {
     justify-content: center;
+  }
+
+  .hero-update-strip {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .contact-quick-actions .btn {
+    width: 100%;
+  }
+
+  .resource-toolbar .btn {
+    margin-top: 0.35rem;
+  }
+
+  .empty-state-card {
+    text-align: left;
   }
 
   .hero-metrics {

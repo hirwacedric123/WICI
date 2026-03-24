@@ -17,6 +17,16 @@
       <h2 class="mb-2">Moments from our community and programs</h2>
       <p class="text-muted">Explore snapshots from events and partnerships that reflect WICI Uganda's mission in action.</p>
     </div>
+    <div class="content-glass-card p-4 p-lg-5 mb-4">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+        <div>
+          <span class="section-kicker d-inline-flex mb-2">Featured Album</span>
+          <h3 class="h5 mb-1">Infrastructure Leadership Highlights</h3>
+          <p class="mb-0 text-muted">A curated look at major events, partnerships, and professional milestones.</p>
+        </div>
+        <a href="{% url 'events' %}" class="btn btn-outline-dark">View Related Events</a>
+      </div>
+    </div>
     <div class="row g-4 card-grid">
       {% for item in media_items %}
         <div class="col-md-6 col-lg-4">
@@ -24,9 +34,13 @@
             {% if item.image_url %}
               <img src="{{ item.image_url }}" class="media-cover" alt="{{ item.title }}">
             {% else %}
-              <div class="image-block media-cover"></div>
+              <div class="image-block image-fill-hero media-cover"></div>
             {% endif %}
             <div class="p-3">
+              <p class="mb-2">
+                <span class="metadata-chip">Gallery</span>
+                {% if item.event_name %}<span class="metadata-chip metadata-chip-muted">{{ item.event_name|truncatechars:22 }}</span>{% endif %}
+              </p>
               <h2 class="h6 mb-1">{{ item.title }}</h2>
               {% if item.event_name %}<p class="small text-muted mb-2">{{ item.event_name }}</p>{% endif %}
               <p class="mb-0 small">{{ item.caption|truncatechars:120 }}</p>

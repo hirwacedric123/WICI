@@ -12,6 +12,34 @@
 
 <section class="py-5 surface-soft">
   <div class="container">
+    <div class="section-intro">
+      <span class="section-kicker d-inline-flex">Membership Journey</span>
+      <h2 class="mb-2">A clear path from interest to active participation</h2>
+      <p class="text-muted">Join a professional community designed to strengthen leadership, technical growth, and long-term industry influence.</p>
+    </div>
+    <div class="membership-steps row g-3 mb-4">
+      <div class="col-md-4">
+        <div class="content-glass-card p-3 h-100">
+          <span class="metadata-chip mb-2">Step 1</span>
+          <h3 class="h6 mb-1">Submit Interest</h3>
+          <p class="mb-0">Share your profile and goals through our contact form.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="content-glass-card p-3 h-100">
+          <span class="metadata-chip mb-2">Step 2</span>
+          <h3 class="h6 mb-1">Eligibility Review</h3>
+          <p class="mb-0">Our team reviews your inquiry and confirms the right pathway.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="content-glass-card p-3 h-100">
+          <span class="metadata-chip mb-2">Step 3</span>
+          <h3 class="h6 mb-1">Onboarding</h3>
+          <p class="mb-0">Receive guidance on events, opportunities, and community access.</p>
+        </div>
+      </div>
+    </div>
     <div class="row g-4">
       <div class="col-lg-7">
         <div class="content-glass-card p-4 p-lg-5 h-100">
@@ -32,6 +60,10 @@
           <h2 class="h5">Ready to Become a Member?</h2>
           <p>Submit your interest and our team will guide you through the next steps.</p>
           <a href="{% url 'contact' %}" class="btn btn-brand w-100">Start Membership Process</a>
+          <div class="d-grid gap-2 mt-3">
+            <a href="{% url 'resources' %}" class="btn btn-outline-dark">View Membership Resources</a>
+            <a href="{% url 'contact' %}" class="btn btn-outline-dark">Request Membership Guide</a>
+          </div>
         </div>
       </div>
     </div>

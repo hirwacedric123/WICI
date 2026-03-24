@@ -17,20 +17,30 @@
       <h2 class="mb-2">Leaders shaping strategy and outcomes</h2>
       <p class="text-muted">Our leadership combines technical knowledge, industry partnerships, and advocacy for inclusive sector growth.</p>
     </div>
+    <div class="leadership-group-label mb-3">
+      <span class="metadata-chip">Executive and Advisory Team</span>
+    </div>
     <div class="row g-4 card-grid">
       {% for leader in leaders %}
         <div class="col-md-6 col-lg-4">
           <div class="info-card p-4 h-100">
-            <div class="image-block mb-3"></div>
+            <div class="image-block image-fill-who mb-3"></div>
             <h2 class="h5 mb-1">{{ leader.full_name }}</h2>
             <p class="text-muted mb-3">{{ leader.role_title }}</p>
             <p class="mb-3">{{ leader.bio|truncatechars:220 }}</p>
-            {% if leader.email %}<p class="mb-1"><strong>Email:</strong> {{ leader.email }}</p>{% endif %}
-            {% if leader.linkedin_url %}<a href="{{ leader.linkedin_url }}" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>{% endif %}
+            <div class="leader-card-footer mt-auto">
+              {% if leader.email %}<p class="mb-1"><strong>Email:</strong> {{ leader.email }}</p>{% endif %}
+              {% if leader.linkedin_url %}<a href="{{ leader.linkedin_url }}" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>{% endif %}
+            </div>
           </div>
         </div>
       {% empty %}
-        <div class="col-12"><div class="info-card p-4"><p class="mb-0">Leadership profiles will appear here once added in admin.</p></div></div>
+        <div class="col-12">
+          <div class="info-card p-4 empty-state-card">
+            <p class="mb-2">Leadership profiles will appear here once added in admin.</p>
+            <a href="{% url 'contact' %}" class="btn btn-sm btn-outline-dark">Contact Secretariat</a>
+          </div>
+        </div>
       {% endfor %}
     </div>
   </div>
