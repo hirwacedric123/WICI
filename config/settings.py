@@ -9,6 +9,24 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+def _parse_allowed_hosts(raw: str) -> list[str]:
+    """Comma-separated hostnames; strips spaces and accidental http(s):// prefixes."""
+    out: list[str] = []
+    for part in raw.split(','):
+        h = part.strip()
+        if not h:
+            continue
+        for prefix in ('https://', 'http://'):
+            if h.startswith(prefix):
+                h = h[len(prefix) :]
+                break
+        h = h.split('/')[0].split(':')[0].strip()
+        if h:
+            out.append(h)
+    return out
+
+
 SECRET_KEY = os.environ.get(
     'DJANGO_SECRET_KEY',
     'django-insecure-7yhsc7(87kh$l*=3)#9cyu%$ra@#@l(&%+1xe1x*37dvzi6l&i',
@@ -18,7 +36,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() in ('1', 'true', 'yes')
 
 _allowed = os.environ.get('DJANGO_ALLOWED_HOSTS', '').strip()
 if _allowed:
-    ALLOWED_HOSTS = [h.strip() for h in _allowed.split(',') if h.strip()]
+    ALLOWED_HOSTS = _parse_allowed_hosts(_allowed)
 else:
     ALLOWED_HOSTS = [
         '127.0.0.1',
@@ -126,6 +144,7 @@ if _csrf:
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 if not DEBUG:
+    USE_X_FORWARDED_HOST = True
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
