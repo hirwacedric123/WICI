@@ -59,9 +59,15 @@
         </div>
         <div class="col-md-3">
           <h2 class="h6 text-uppercase">Contact</h2>
-          <p class="mb-1">Kampala, Uganda</p>
-          <p class="mb-1">info@wiciuganda.org</p>
-          <p class="mb-0">+256 700 000 000</p>
+          <p class="mb-1">{{ site_contact.physical_address }}</p>
+          <p class="mb-1">{{ site_contact.postal_address }}</p>
+          <p class="mb-1"><a href="mailto:{{ site_contact.email }}">{{ site_contact.email }}</a></p>
+          <p class="mb-0">
+            {% for p in site_contact.phones %}
+              {% if not forloop.first %}<span class="text-white-50"> · </span>{% endif %}
+              <a href="tel:{{ p.tel }}">{{ p.display }}</a>
+            {% endfor %}
+          </p>
         </div>
       </div>
       <hr class="site-footer-divider">

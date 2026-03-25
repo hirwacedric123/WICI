@@ -100,13 +100,19 @@
           <h2 class="h5">Office & Contacts</h2>
           <p class="text-muted mb-3">Connect with us directly through the channels below for urgent or quick follow-up.</p>
           <div class="contact-quick-actions mb-3">
-            <a href="tel:+256700000000" class="btn btn-outline-dark btn-sm">Call Office</a>
-            <a href="mailto:info@wiciuganda.org" class="btn btn-outline-dark btn-sm">Email Team</a>
-            <a href="https://maps.google.com/?q=Kampala,+Uganda" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm">Get Directions</a>
+            <a href="tel:{{ site_contact.phones.0.tel }}" class="btn btn-outline-dark btn-sm">Call Office</a>
+            <a href="mailto:{{ site_contact.email }}" class="btn btn-outline-dark btn-sm">Email Team</a>
+            <a href="{{ site_contact.maps_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-dark btn-sm">Get Directions</a>
           </div>
-          <p class="mb-2"><strong>Address:</strong> Kampala, Uganda</p>
-          <p class="mb-2"><strong>Email:</strong> info@wiciuganda.org</p>
-          <p class="mb-2"><strong>Phone:</strong> +256 700 000 000</p>
+          <p class="mb-2"><strong>Address:</strong> {{ site_contact.physical_address }}</p>
+          <p class="mb-2"><strong>Postal:</strong> {{ site_contact.postal_address }}</p>
+          <p class="mb-2"><strong>Email:</strong> <a href="mailto:{{ site_contact.email }}">{{ site_contact.email }}</a></p>
+          <p class="mb-2"><strong>Phone:</strong>
+            {% for p in site_contact.phones %}
+              {% if not forloop.first %}, {% endif %}
+              <a href="tel:{{ p.tel }}">{{ p.display }}</a>
+            {% endfor %}
+          </p>
           <p class="mb-2"><strong>Hours:</strong> Mon - Fri, 8:00 AM - 5:00 PM</p>
           <p class="mb-0 contact-trust-note">Response window: 1-2 business days for most inquiries.</p>
         </div>
