@@ -30,7 +30,7 @@
 
   // Phase 1: shared reveal animation system.
   const revealTargets = document.querySelectorAll(
-    '.page-header, .section-intro, .hero-stack, .hero-impact-card, .cta-section, .content-glass-card, .info-card, .program-card, .impact-card, .event-card, .join-box, .contact-form, .contact-faq, .contact-utility-card, .platform-visual-wrap'
+    '.page-header, .section-intro, .hero-stack, .hero-impact-card, .cta-section, .content-glass-card, .info-card, .program-card, .impact-card, .event-card, .join-box, .contact-form-shell, .contact-faq-card, .contact-aside-card, .contact-utility-card, .platform-visual-wrap'
   );
 
   revealTargets.forEach((el, index) => {
