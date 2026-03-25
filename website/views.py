@@ -7,6 +7,7 @@ from pathlib import Path
 
 from .forms import ContactInquiryForm
 from .models import MediaGalleryItem, Partner
+from .partner_logos import PARTNER_LOGOS
 
 
 def home(request):
@@ -27,7 +28,10 @@ def membership(request):
 
 def partners(request):
     partners_list = Partner.objects.filter(is_active=True)
-    context = {"partners_list": partners_list}
+    context = {
+        "partner_logos": PARTNER_LOGOS,
+        "partners_list": partners_list,
+    }
     return render(request, "website/partners.html", context)
 
 

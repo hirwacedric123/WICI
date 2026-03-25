@@ -1,4 +1,5 @@
 {% extends 'website/base.html' %}
+{% load static %}
 
 {% block title %}Partners | WICI Uganda{% endblock %}
 
@@ -17,11 +18,43 @@
       <h2 class="mb-2">Organizations advancing shared impact</h2>
       <p class="text-muted">We work with institutions committed to stronger talent pipelines, inclusive growth, and sustainable infrastructure outcomes.</p>
     </div>
+    <div class="row g-4 mb-4 card-grid partner-logo-grid">
+      {% for item in partner_logos %}
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="info-card partner-logo-card p-4 h-100 d-flex flex-column align-items-center text-center">
+            <div class="partner-logo-frame mb-3">
+              <img
+                src="{% static 'website/img/partners/'|add:item.image %}"
+                alt="{{ item.name }} logo"
+                class="partner-logo-img"
+                loading="lazy"
+                width="280"
+                height="160"
+              >
+            </div>
+            <h2 class="h6 mb-0 partner-logo-name">{{ item.name }}</h2>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if partners_list %}
+    <div class="section-intro mt-5 mb-3">
+      <span class="section-kicker d-inline-flex">Also featured</span>
+      <h2 class="mb-2">Partner profiles</h2>
+      <p class="text-muted mb-0">Additional partners listed in our directory.</p>
+    </div>
     <div class="row g-4 mb-4 card-grid">
       {% for partner in partners_list %}
         <div class="col-md-4">
           <div class="info-card p-4 h-100">
-            <div class="image-block image-fill-involved mb-3"></div>
+            {% if partner.logo_url %}
+              <div class="partner-logo-frame mb-3">
+                <img src="{{ partner.logo_url }}" alt="{{ partner.name }} logo" class="partner-logo-img" loading="lazy" width="280" height="160">
+              </div>
+            {% else %}
+              <div class="image-block image-fill-involved mb-3"></div>
+            {% endif %}
             <h2 class="h5">{{ partner.name }}</h2>
             <p class="mb-2"><span class="metadata-chip">{{ partner.category }}</span></p>
             <p class="mb-3">{{ partner.description|default:"Strategic collaboration partner of WICI Uganda." }}</p>
@@ -30,41 +63,44 @@
             {% endif %}
           </div>
         </div>
-      {% empty %}
-        <div class="col-12">
-          <div class="info-card p-4 empty-state-card">
-            <p class="mb-2">Partner profiles will appear here once published in admin.</p>
-            <a href="{% url 'contact' %}" class="btn btn-sm btn-outline-dark">Discuss a Partnership</a>
-          </div>
-        </div>
       {% endfor %}
     </div>
+    {% endif %}
 
-    <div class="content-glass-card p-4 p-lg-5 mb-4">
-      <div class="section-intro mb-3">
+    <div class="content-glass-card p-4 p-lg-5 mb-4 partnership-models-section">
+      <div class="section-intro mb-3 mb-md-4">
         <span class="section-kicker d-inline-flex">Partnership Models</span>
         <h2 class="mb-2">Flexible ways to collaborate</h2>
         <p class="text-muted">We design practical partnerships that align with sector goals, organizational mandates, and measurable outcomes.</p>
       </div>
-      <div class="row g-3">
+      <div class="row g-3 g-md-4 partner-models-row">
         <div class="col-md-4">
-          <div class="partner-model p-3 h-100">
+          <div class="partner-model partner-model-card p-4 h-100">
+            <div class="partner-model-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L4 9v12h6v-7h4v7h6V9l-8-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 21V9h6v12" stroke="currentColor" stroke-width="1.6"/></svg>
+            </div>
             <span class="metadata-chip mb-2">Model A</span>
-            <h3 class="h6 mb-1">Program Co-Delivery</h3>
+            <h3 class="h6 mb-2">Program Co-Delivery</h3>
             <p class="mb-0">Co-create learning, mentorship, and sector engagement initiatives.</p>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="partner-model p-3 h-100">
+          <div class="partner-model partner-model-card p-4 h-100">
+            <div class="partner-model-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l2.6 5.3L20 8.3l-4 3.9.9 5.7L12 15.9 7.1 18l.9-5.7-4-3.9 5.4-.9L12 2z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+            </div>
             <span class="metadata-chip mb-2">Model B</span>
-            <h3 class="h6 mb-1">Strategic Sponsorship</h3>
+            <h3 class="h6 mb-2">Strategic Sponsorship</h3>
             <p class="mb-0">Support high-impact events and long-term women leadership pathways.</p>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="partner-model p-3 h-100">
+          <div class="partner-model partner-model-card p-4 h-100">
+            <div class="partner-model-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 19.5A2.5 2.5 0 016.5 17H20" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="currentColor" stroke-width="1.4"/><path d="M8 7h8M8 11h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
             <span class="metadata-chip mb-2">Model C</span>
-            <h3 class="h6 mb-1">Knowledge Partnership</h3>
+            <h3 class="h6 mb-2">Knowledge Partnership</h3>
             <p class="mb-0">Contribute technical expertise, data, and thought leadership content.</p>
           </div>
         </div>

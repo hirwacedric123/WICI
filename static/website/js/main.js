@@ -84,7 +84,10 @@
   });
 
   // Phase 3: timeline and model cards motion hooks.
+  // Do not reveal .partner-model inside .content-glass-card: the parent already uses
+  // .reveal; nested cards can sit below the viewport and never get .is-visible, so they stay opacity:0.
   document.querySelectorAll('.about-timeline-item, .partner-model').forEach((el, index) => {
+    if (el.classList.contains('partner-model') && el.closest('.content-glass-card')) return;
     el.classList.add('reveal', 'reveal-left');
     if (index % 2 === 1) el.classList.replace('reveal-left', 'reveal-right');
     if (index % 3 === 1) el.classList.add('delay-1');
