@@ -1,5 +1,5 @@
 (() => {
-  const navLinks = document.querySelectorAll('.navbar .nav-link');
+  const navLinks = document.querySelectorAll('.navbar .nav-link[href]:not([href="#"])');
   const currentPath = window.location.pathname.replace(/\/+$/, '') || '/';
 
   navLinks.forEach((link) => {
@@ -11,6 +11,9 @@
     if (isActive) {
       link.classList.add('active');
       link.setAttribute('aria-current', 'page');
+      const dropdown = link.closest('.dropdown');
+      const dropdownToggle = dropdown?.querySelector('.dropdown-toggle');
+      if (dropdownToggle) dropdownToggle.classList.add('active');
     }
   });
 })();
