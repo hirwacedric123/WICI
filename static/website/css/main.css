@@ -202,7 +202,7 @@ button:focus-visible,
   position: relative;
   color: #fff;
   background-image: linear-gradient(118deg, rgba(6, 19, 31, 0.8), rgba(10, 30, 49, 0.54)),
-    url("../img/placeholders/hero-bg.png");
+    url("../img/wiciphoto/1.jpg");
   background-size: cover;
   background-position: center;
   min-height: 100svh;
@@ -554,7 +554,7 @@ button:focus-visible,
   border-bottom: 0;
   background-image:
     linear-gradient(118deg, rgba(6, 19, 31, 0.82), rgba(10, 30, 49, 0.62)),
-    url("../img/placeholders/hero-bg.png");
+    url("../img/wiciphoto/1.jpg");
   min-height: clamp(18rem, 38svh, 26rem);
   display: flex;
   align-items: center;
@@ -874,7 +874,7 @@ button:focus-visible,
   border: 1px solid rgba(255, 255, 255, 0.34);
   background:
     linear-gradient(155deg, rgba(6, 24, 39, 0.42), rgba(10, 38, 62, 0.2)),
-    url("../img/placeholders/section-platform-main.png");
+    url("../img/wiciphoto/8.jpg");
   background-size: cover;
   background-position: center;
   box-shadow:
@@ -997,19 +997,19 @@ button:focus-visible,
 .platform-card-image-who {
   background-image:
     linear-gradient(150deg, rgba(16, 42, 67, 0.35), rgba(16, 42, 67, 0.12)),
-    url("../img/placeholders/card-who-we-are.png");
+    url("../img/wiciphoto/3.jpg");
 }
 
 .platform-card-image-what {
   background-image:
     linear-gradient(150deg, rgba(16, 42, 67, 0.35), rgba(16, 42, 67, 0.12)),
-    url("../img/placeholders/card-what-we-do.png");
+    url("../img/wiciphoto/6.jpg");
 }
 
 .platform-card-image-involved {
   background-image:
     linear-gradient(150deg, rgba(16, 42, 67, 0.35), rgba(16, 42, 67, 0.12)),
-    url("../img/placeholders/card-get-involved.png");
+    url("../img/wiciphoto/10.jpg");
 }
 
 .platform-info-card h3,
@@ -1033,31 +1033,31 @@ button:focus-visible,
 .image-fill-who {
   background-image:
     linear-gradient(150deg, rgba(16, 42, 67, 0.2), rgba(16, 42, 67, 0.08)),
-    url("../img/placeholders/card-who-we-are.png");
+    url("../img/wiciphoto/3.jpg");
 }
 
 .image-fill-what {
   background-image:
     linear-gradient(150deg, rgba(16, 42, 67, 0.2), rgba(16, 42, 67, 0.08)),
-    url("../img/placeholders/card-what-we-do.png");
+    url("../img/wiciphoto/6.jpg");
 }
 
 .image-fill-involved {
   background-image:
     linear-gradient(150deg, rgba(16, 42, 67, 0.2), rgba(16, 42, 67, 0.08)),
-    url("../img/placeholders/card-get-involved.png");
+    url("../img/wiciphoto/10.jpg");
 }
 
 .image-fill-platform {
   background-image:
     linear-gradient(150deg, rgba(16, 42, 67, 0.24), rgba(16, 42, 67, 0.1)),
-    url("../img/placeholders/section-platform-main.png");
+    url("../img/wiciphoto/8.jpg");
 }
 
 .image-fill-hero {
   background-image:
     linear-gradient(150deg, rgba(16, 42, 67, 0.24), rgba(16, 42, 67, 0.1)),
-    url("../img/placeholders/hero-bg.png");
+    url("../img/wiciphoto/1.jpg");
 }
 
 .info-card,
@@ -1525,19 +1525,19 @@ body.lightbox-open {
 .program-media-leadership {
   background-image:
     linear-gradient(150deg, rgba(16, 42, 67, 0.22), rgba(16, 42, 67, 0.1)),
-    url("../img/placeholders/card-who-we-are.png");
+    url("../img/wiciphoto/50.jpg");
 }
 
 .program-media-technical {
   background-image:
     linear-gradient(150deg, rgba(16, 42, 67, 0.22), rgba(16, 42, 67, 0.1)),
-    url("../img/placeholders/card-what-we-do.png");
+    url("../img/wiciphoto/7.jpg");
 }
 
 .program-media-networking {
   background-image:
     linear-gradient(150deg, rgba(16, 42, 67, 0.22), rgba(16, 42, 67, 0.1)),
-    url("../img/placeholders/card-get-involved.png");
+    url("../img/wiciphoto/9.jpg");
 }
 
 .program-chip {
@@ -1658,7 +1658,7 @@ body.lightbox-open {
 .cta-section {
   color: #fff;
   background-image: linear-gradient(110deg, rgba(11, 31, 53, 0.95), rgba(22, 58, 93, 0.9)),
-    url("../img/placeholders/hero-bg.png");
+    url("../img/wiciphoto/1.jpg");
   background-size: cover;
   background-position: center;
   border-top: 4px solid var(--wici-gold);
