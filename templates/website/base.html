@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'website/css/main.css' %}">
 </head>
-<body>
+<body id="top">
   <header>
     <nav class="navbar navbar-expand-xl sticky-top site-navbar">
       <div class="container">
@@ -41,37 +41,69 @@
     {% block content %}{% endblock %}
   </main>
 
-  <footer class="site-footer py-5 mt-5">
-    <div class="container">
-      <div class="row g-4 align-items-start">
-        <div class="col-md-5">
-          <img src="{% static 'website/img/logo1.png' %}" alt="WICI Uganda alternate logo" class="footer-logo mb-3">
-          <p class="mb-0">Women in Construction & Infrastructure Ugandan Chapter is a professional platform advancing leadership, visibility, and impact of women in the built environment.</p>
+  <footer class="site-footer mt-5">
+    <div class="site-footer-accent" aria-hidden="true"></div>
+    <div class="container py-5 position-relative">
+      <div class="row g-4 g-xl-5 align-items-start justify-content-between footer-main">
+        <div class="col-lg-5">
+          <div class="footer-logo-card">
+            <img src="{% static 'website/img/logo1.png' %}" alt="WICI Uganda" width="200" class="footer-logo" loading="lazy" decoding="async">
+          </div>
+          <p class="footer-tagline mb-4">Women in Construction &amp; Infrastructure Ugandan Chapter is a professional platform advancing leadership, visibility, and impact of women in the built environment.</p>
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <a class="btn btn-brand btn-sm px-3 py-2" href="{% url 'contact' %}">Contact us</a>
+            <a class="btn btn-outline-brand btn-sm px-3 py-2" href="{% url 'membership' %}">Join membership</a>
+          </div>
         </div>
-        <div class="col-md-4">
-          <h2 class="h6 text-uppercase">Quick Links</h2>
-          <ul class="list-unstyled mb-0">
-            <li><a href="{% url 'about' %}">About WICI</a></li>
-            <li><a href="{% url 'programs' %}">Programs</a></li>
-            <li><a href="{% url 'membership' %}">Join Membership</a></li>
-            <li><a href="{% url 'partners' %}">Partner With Us</a></li>
+        <div class="col-sm-6 col-lg-3">
+          <h2 class="footer-heading">Quick links</h2>
+          <nav class="footer-nav" aria-label="Footer">
+            <ul class="list-unstyled mb-0">
+              <li><a class="footer-link" href="{% url 'home' %}">Home</a></li>
+              <li><a class="footer-link" href="{% url 'about' %}">About</a></li>
+              <li><a class="footer-link" href="{% url 'programs' %}">Programs</a></li>
+              <li><a class="footer-link" href="{% url 'media_gallery' %}">Gallery</a></li>
+              <li><a class="footer-link" href="{% url 'partners' %}">Partners</a></li>
+              <li><a class="footer-link" href="{% url 'contact' %}">Contact</a></li>
+              <li><a class="footer-link" href="{% url 'membership' %}">Membership</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="col-sm-6 col-lg-4">
+          <h2 class="footer-heading">Contact</h2>
+          <ul class="footer-contact list-unstyled mb-0">
+            <li class="footer-contact-item">
+              <span class="footer-contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M12 11.5a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5z" stroke="currentColor" stroke-width="1.6"/><path d="M19.5 9.75c0 5.25-7.5 10.5-7.5 10.5S4.5 15 4.5 9.75a7.5 7.5 0 1115 0z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div>
+                <a class="footer-contact-strong" href="{{ site_contact.maps_url }}" rel="noopener noreferrer" target="_blank">{{ site_contact.physical_address }}</a>
+                <span class="footer-contact-muted d-block small">{{ site_contact.postal_address }}</span>
+              </div>
+            </li>
+            <li class="footer-contact-item">
+              <span class="footer-contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M4 6.75A2.25 2.25 0 016.25 4.5h11.5A2.25 2.25 0 0120 6.75v10.5A2.25 2.25 0 0117.75 19.5H6.25A2.25 2.25 0 014 17.25V6.75z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M5.5 7.5l5.65 4.24a1.5 1.5 0 001.7 0L18.5 7.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <a class="footer-contact-strong" href="mailto:{{ site_contact.email }}">{{ site_contact.email }}</a>
+            </li>
+            <li class="footer-contact-item">
+              <span class="footer-contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22"><path d="M8.25 4.5h-.75A2.25 2.25 0 005.25 6.75v10.5A2.25 2.25 0 007.5 19.5h9a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0016.5 4.5h-.75" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10.5 3.75h3a1.5 1.5 0 011.5 1.5v.75a.75.75 0 01-.75.75h-4.5a.75.75 0 01-.75-.75V5.25a1.5 1.5 0 011.5-1.5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 16.5v.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </span>
+              <div class="footer-phone-links">
+                {% for p in site_contact.phones %}
+                  <a class="footer-contact-strong" href="tel:{{ p.tel }}">{{ p.display }}</a>
+                {% endfor %}
+              </div>
+            </li>
           </ul>
         </div>
-        <div class="col-md-3">
-          <h2 class="h6 text-uppercase">Contact</h2>
-          <p class="mb-1">{{ site_contact.physical_address }}</p>
-          <p class="mb-1">{{ site_contact.postal_address }}</p>
-          <p class="mb-1"><a href="mailto:{{ site_contact.email }}">{{ site_contact.email }}</a></p>
-          <p class="mb-0">
-            {% for p in site_contact.phones %}
-              {% if not forloop.first %}<span class="text-white-50"> · </span>{% endif %}
-              <a href="tel:{{ p.tel }}">{{ p.display }}</a>
-            {% endfor %}
-          </p>
-        </div>
       </div>
-      <hr class="site-footer-divider">
-      <p class="small mb-0">&copy; {% now "Y" %} WICI Uganda. All rights reserved.</p>
+      <div class="footer-bottom">
+        <p class="footer-copy mb-0">&copy; {% now "Y" %} WICI Uganda. All rights reserved.</p>
+        <a class="footer-back-top" href="#top">Back to top</a>
+      </div>
     </div>
   </footer>
 

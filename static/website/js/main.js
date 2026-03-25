@@ -345,4 +345,15 @@
       });
     }
   }
+
+  const backTop = document.querySelector('.footer-back-top');
+  if (backTop) {
+    backTop.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+      });
+    });
+  }
 })();
