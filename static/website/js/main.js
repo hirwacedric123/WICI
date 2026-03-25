@@ -179,12 +179,6 @@
   };
 
   setupCardFilter({
-    inputSelector: '#resourceSearch',
-    cardSelector: '[data-resource-card]',
-    valueSource: (card) => `${card.dataset.title || ''} ${card.dataset.category || ''} ${card.dataset.type || ''}`
-  });
-
-  setupCardFilter({
     inputSelector: '#newsSearch',
     cardSelector: '[data-news-card]',
     valueSource: (card) => `${card.dataset.title || ''} ${card.dataset.author || ''} ${card.dataset.date || ''}`

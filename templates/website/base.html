@@ -23,34 +23,9 @@
         <div class="collapse navbar-collapse site-navbar-collapse" id="mainNav">
           <ul class="navbar-nav ms-auto mb-2 mb-xl-0 align-items-xl-center site-navbar-links">
             <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                About
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'about' %}">About</a></li>
-                <li><a class="dropdown-item" href="{% url 'leadership' %}">Leadership</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Programs
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'programs' %}">Programs</a></li>
-                <li><a class="dropdown-item" href="{% url 'events' %}">Events</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Resources
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="{% url 'resources' %}">Resources</a></li>
-                <li><a class="dropdown-item" href="{% url 'news' %}">News</a></li>
-                <li><a class="dropdown-item" href="{% url 'media_gallery' %}">Media Gallery</a></li>
-              </ul>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'programs' %}">Programs</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'media_gallery' %}">Gallery</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'partners' %}">Partners</a></li>
             <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
             <li class="nav-item site-navbar-cta-wrap">

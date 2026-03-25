@@ -5,52 +5,56 @@
 {% block content %}
 <section class="py-5 page-header page-hero">
   <div class="container">
-    <h1>Media Gallery</h1>
-    <p class="lead mb-0">Highlights from events, programs, and partnership engagements.</p>
+    <h1>WICI Media Gallery</h1>
+    <p class="lead mb-0">A visual story of our programs, events, and community impact across Uganda.</p>
   </div>
 </section>
 
-<section class="py-5 surface-soft">
+<section class="py-5 section-soft">
   <div class="container">
-    <div class="section-intro">
-      <span class="section-kicker d-inline-flex">Visual Highlights</span>
-      <h2 class="mb-2">Moments from our community and programs</h2>
-      <p class="text-muted">Explore snapshots from events and partnerships that reflect WICI Uganda's mission in action.</p>
+    <div class="section-intro centered">
+      <span class="section-kicker d-inline-flex">Gallery Highlights</span>
+      <h2 class="mb-2">Moments of leadership, learning, and connection</h2>
+      <p class="text-muted">Explore photos from WICI activities. Click any image to open a full-screen preview.</p>
     </div>
-    <div class="content-glass-card p-4 p-lg-5 mb-4">
-      <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
-        <div>
-          <span class="section-kicker d-inline-flex mb-2">Featured Album</span>
-          <h3 class="h5 mb-1">Infrastructure Leadership Highlights</h3>
-          <p class="mb-0 text-muted">A curated look at major events, partnerships, and professional milestones.</p>
+
+    {% if gallery_items %}
+      <div class="gallery-toolbar content-glass-card p-3 p-md-4 mb-4">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+          <p class="mb-0 text-muted">Total photos</p>
+          <p class="mb-0 fw-bold text-dark">{{ gallery_items|length }}</p>
         </div>
-        <a href="{% url 'events' %}" class="btn btn-outline-dark">View Related Events</a>
       </div>
-    </div>
-    <div class="row g-4 card-grid">
-      {% for item in media_items %}
-        <div class="col-md-6 col-lg-4">
-          <div class="info-card h-100 overflow-hidden">
-            {% if item.image_url %}
-              <img src="{{ item.image_url }}" class="media-cover js-lightbox-trigger" alt="{{ item.title|escape }}" data-lightbox-src="{{ item.image_url|escape }}" data-lightbox-caption="{{ item.title|escape }}{% if item.event_name %} - {{ item.event_name|escape }}{% endif %}">
-            {% else %}
-              <div class="image-block image-fill-hero media-cover"></div>
-            {% endif %}
-            <div class="p-3">
-              <p class="mb-2">
-                <span class="metadata-chip">Gallery</span>
-                {% if item.event_name %}<span class="metadata-chip metadata-chip-muted">{{ item.event_name|truncatechars:22 }}</span>{% endif %}
-              </p>
-              <h2 class="h6 mb-1">{{ item.title }}</h2>
-              {% if item.event_name %}<p class="small text-muted mb-2">{{ item.event_name }}</p>{% endif %}
-              <p class="mb-0 small">{{ item.caption|truncatechars:120 }}</p>
+
+      <div class="wici-gallery-grid">
+        {% for item in gallery_items %}
+          <article class="wici-gallery-card info-card">
+            <button
+              type="button"
+              class="wici-gallery-trigger js-lightbox-trigger"
+              data-lightbox-src="{{ item.image_url }}"
+              data-lightbox-caption="{{ item.title }}"
+              aria-label="Open image: {{ item.title }}"
+            >
+              <img src="{{ item.image_url }}" alt="{{ item.title }}" class="media-cover wici-gallery-image">
+            </button>
+            <div class="p-3 p-lg-4">
+              <h3 class="h6 mb-1">{{ item.title }}</h3>
+              {% if item.caption %}
+                <p class="text-muted mb-0 small">{{ item.caption|truncatechars:120 }}</p>
+              {% else %}
+                <p class="text-muted mb-0 small">WICI Uganda photo highlight.</p>
+              {% endif %}
             </div>
-          </div>
-        </div>
-      {% empty %}
-        <div class="col-12"><div class="info-card p-4"><p class="mb-0">Media items will appear here once added in admin.</p></div></div>
-      {% endfor %}
-    </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="info-card p-4 empty-state-card">
+        <p class="mb-2">No gallery photos are available yet.</p>
+        <a href="{% url 'contact' %}" class="btn btn-sm btn-outline-dark">Share Media Content</a>
+      </div>
+    {% endif %}
   </div>
 </section>
 {% endblock %}
