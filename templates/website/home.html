@@ -17,37 +17,6 @@
               <a class="btn btn-brand" href="{% url 'membership' %}">Join Membership</a>
               <a class="btn btn-outline-brand" href="{% url 'partners' %}">Become a Partner</a>
             </div>
-            <div class="hero-audience mt-4">
-              <p class="mb-1 fw-semibold">Serving key stakeholders:</p>
-              <p class="mb-0">Women professionals, government agencies, development partners, private sector contractors, and young professionals.</p>
-            </div>
-            <div class="hero-metrics mt-4">
-              <div class="hero-metric-item">
-                <span class="hero-metric-value">5+</span>
-                <span class="hero-metric-label">Audience Groups</span>
-              </div>
-              <div class="hero-metric-item">
-                <span class="hero-metric-value">100%</span>
-                <span class="hero-metric-label">Industry Focused</span>
-              </div>
-              <div class="hero-metric-item">
-                <span class="hero-metric-value">National</span>
-                <span class="hero-metric-label">Uganda Chapter</span>
-              </div>
-            </div>
-            <div class="hero-trust-band mt-4">
-              <span>Trusted by professionals</span>
-              <span>Policy and industry engagement</span>
-              <span>Career and leadership growth</span>
-            </div>
-            <div class="hero-update-strip mt-4">
-              <span class="metadata-chip">Latest</span>
-              <p class="mb-0">Explore our latest program opportunities and media highlights from WICI Uganda.</p>
-              <div class="hero-update-links">
-                <a href="{% url 'media_gallery' %}">Gallery</a>
-                <a href="{% url 'programs' %}">Programs</a>
-              </div>
-            </div>
           </div>
         </div>
         <div class="col-lg-5">
@@ -77,14 +46,14 @@
   </div>
 </section>
 
-<section class="py-5 section-soft">
+<section class="py-5 section-soft summary-video-section">
   <div class="container">
     <div class="section-intro centered mb-4">
       <span class="section-kicker d-inline-flex">WICI in Summary</span>
       <h2 class="mb-2">Watch our story</h2>
       <p class="text-muted mb-0">A short overview of WICI Uganda's mission, impact, and opportunities.</p>
     </div>
-    <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-sm">
+    <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-sm summary-video-frame">
       <video controls preload="metadata" aria-label="WICI Uganda summary video">
         <source src="{% static 'website/video/wici-summary.mp4' %}" type="video/mp4">
         Your browser does not support the video tag.
@@ -99,10 +68,6 @@
       <div class="col-lg-6">
         <div class="platform-visual-wrap">
           <div class="platform-feature-image" role="img" aria-label="Women professionals on an infrastructure project site"></div>
-          <div class="platform-visual-badge">
-            <span class="platform-visual-value">Trusted Network</span>
-            <span class="platform-visual-label">Built for professional growth and sector collaboration.</span>
-          </div>
         </div>
       </div>
       <div class="col-lg-6">

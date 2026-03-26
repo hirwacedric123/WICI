@@ -220,7 +220,7 @@ button:focus-visible,
     url("../img/wiciphoto/1.jpg");
   background-size: cover;
   background-position: center;
-  min-height: 100svh;
+  min-height: clamp(38rem, 82svh, 56rem);
   overflow: hidden;
 }
 
@@ -257,10 +257,18 @@ button:focus-visible,
 
 .hero-content-panel {
   width: 100%;
-  min-height: 100svh;
+  min-height: clamp(38rem, 82svh, 56rem);
   display: flex;
   align-items: center;
   background: linear-gradient(145deg, rgba(8, 22, 36, 0.5), rgba(12, 33, 54, 0.34));
+}
+
+.summary-video-section .section-intro {
+  margin-bottom: 2.6rem;
+}
+
+.summary-video-frame {
+  margin-top: 0.6rem;
 }
 
 .hero-inner {
@@ -290,7 +298,7 @@ button:focus-visible,
 }
 
 .hero-title {
-  font-size: clamp(2rem, 4.6vw, 3.5rem);
+  font-size: clamp(1.65rem, 3.4vw, 2.7rem);
   line-height: 1.2;
   font-weight: 800;
   letter-spacing: -0.2px;
@@ -492,6 +500,9 @@ button:focus-visible,
   font-weight: 700;
   font-size: 0.78rem;
   text-transform: uppercase;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -569,10 +580,48 @@ button:focus-visible,
   border-bottom: 0;
   background-image:
     linear-gradient(118deg, rgba(6, 19, 31, 0.82), rgba(10, 30, 49, 0.62)),
-    url("../img/wiciphoto/1.jpg");
-  min-height: clamp(18rem, 38svh, 26rem);
+    url("../img/wiciphoto/93.jpg");
+  background-position: center 30%;
+  min-height: clamp(20rem, 42svh, 29rem);
   display: flex;
   align-items: center;
+}
+
+.about-page-hero {
+  background-image:
+    linear-gradient(118deg, rgba(6, 19, 31, 0.82), rgba(10, 30, 49, 0.62)),
+    url("../img/wiciphoto/93.jpg");
+}
+
+.programs-page-hero {
+  background-image:
+    linear-gradient(118deg, rgba(6, 19, 31, 0.82), rgba(10, 30, 49, 0.62)),
+    url("../img/wiciphoto/93.jpg");
+}
+
+.membership-page-hero {
+  background-image:
+    linear-gradient(118deg, rgba(6, 19, 31, 0.82), rgba(10, 30, 49, 0.62)),
+    url("../img/wiciphoto/93.jpg");
+}
+
+.partners-page-hero {
+  background-image:
+    linear-gradient(118deg, rgba(6, 19, 31, 0.82), rgba(10, 30, 49, 0.62)),
+    url("../img/wiciphoto/93.jpg");
+}
+
+.media-page-hero {
+  background-image:
+    linear-gradient(118deg, rgba(6, 19, 31, 0.82), rgba(10, 30, 49, 0.62)),
+    url("../img/wiciphoto/93.jpg");
+  background-position: center 30%;
+}
+
+.contact-page-hero {
+  background-image:
+    linear-gradient(118deg, rgba(6, 19, 31, 0.82), rgba(10, 30, 49, 0.62)),
+    url("../img/wiciphoto/93.jpg");
 }
 
 .page-header.page-hero::after {
@@ -1197,7 +1246,7 @@ a.contact-detail-value:focus-visible {
   border: 1px solid rgba(255, 255, 255, 0.34);
   background:
     linear-gradient(155deg, rgba(6, 24, 39, 0.42), rgba(10, 38, 62, 0.2)),
-    url("../img/wiciphoto/8.jpg");
+    url("../img/wiciphoto/80.jpg");
   background-size: cover;
   background-position: center;
   box-shadow:
@@ -1223,8 +1272,8 @@ a.contact-detail-value:focus-visible {
   right: 0;
   bottom: 0;
   max-width: min(21rem, 84%);
-  background: linear-gradient(155deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.14));
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.64));
+  border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 0.95rem;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.45),
@@ -1239,13 +1288,15 @@ a.contact-detail-value:focus-visible {
   color: var(--wici-navy);
   font-size: 0.95rem;
   font-weight: 800;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .platform-visual-label {
   display: block;
   margin-top: 0.15rem;
-  color: var(--wici-muted);
+  color: rgba(16, 42, 67, 0.9);
   font-size: 0.83rem;
+  font-weight: 600;
   line-height: 1.5;
 }
 
@@ -1320,19 +1371,19 @@ a.contact-detail-value:focus-visible {
 .platform-card-image-who {
   background-image:
     linear-gradient(150deg, rgba(16, 42, 67, 0.35), rgba(16, 42, 67, 0.12)),
-    url("../img/wiciphoto/3.jpg");
+    url("../img/wiciphoto/81.jpg");
 }
 
 .platform-card-image-what {
   background-image:
     linear-gradient(150deg, rgba(16, 42, 67, 0.35), rgba(16, 42, 67, 0.12)),
-    url("../img/wiciphoto/6.jpg");
+    url("../img/wiciphoto/82.jpg");
 }
 
 .platform-card-image-involved {
   background-image:
     linear-gradient(150deg, rgba(16, 42, 67, 0.35), rgba(16, 42, 67, 0.12)),
-    url("../img/wiciphoto/10.jpg");
+    url("../img/wiciphoto/83.jpg");
 }
 
 .platform-info-card h3,
@@ -1386,7 +1437,73 @@ a.contact-detail-value:focus-visible {
 .image-fill-hero {
   background-image:
     linear-gradient(150deg, rgba(16, 42, 67, 0.24), rgba(16, 42, 67, 0.1)),
-    url("../img/wiciphoto/1.jpg");
+    url("../img/wiciphoto/16.jpg");
+}
+
+.image-fill-advocacy {
+  background-image:
+    linear-gradient(150deg, rgba(16, 42, 67, 0.2), rgba(16, 42, 67, 0.08)),
+    url("../img/wiciphoto/26.jpg");
+}
+
+.image-fill-about-mission {
+  background-image:
+    linear-gradient(150deg, rgba(16, 42, 67, 0.2), rgba(16, 42, 67, 0.08)),
+    url("../img/wiciphoto/68.jpg");
+}
+
+.image-fill-about-vision {
+  background-image:
+    linear-gradient(150deg, rgba(16, 42, 67, 0.24), rgba(16, 42, 67, 0.1)),
+    url("../img/wiciphoto/94.jpg");
+}
+
+.image-fill-program-symposium {
+  background-image:
+    linear-gradient(150deg, rgba(16, 42, 67, 0.2), rgba(16, 42, 67, 0.08)),
+    url("../img/wiciphoto/70.jpg");
+}
+
+.image-fill-program-skills {
+  background-image:
+    linear-gradient(150deg, rgba(16, 42, 67, 0.24), rgba(16, 42, 67, 0.1)),
+    url("../img/wiciphoto/71.jpg");
+}
+
+.image-fill-program-mentorship {
+  background-image:
+    linear-gradient(150deg, rgba(16, 42, 67, 0.2), rgba(16, 42, 67, 0.08)),
+    url("../img/wiciphoto/72.jpg");
+}
+
+.image-fill-program-leadership {
+  background-image:
+    linear-gradient(150deg, rgba(16, 42, 67, 0.24), rgba(16, 42, 67, 0.1)),
+    url("../img/wiciphoto/73.jpg");
+}
+
+.image-fill-program-partnership {
+  background-image:
+    linear-gradient(150deg, rgba(16, 42, 67, 0.2), rgba(16, 42, 67, 0.08)),
+    url("../img/wiciphoto/74.jpg");
+}
+
+.image-fill-program-advocacy {
+  background-image:
+    linear-gradient(150deg, rgba(16, 42, 67, 0.2), rgba(16, 42, 67, 0.08)),
+    url("../img/wiciphoto/75.jpg");
+}
+
+.image-fill-partners-fallback {
+  background-image:
+    linear-gradient(150deg, rgba(16, 42, 67, 0.2), rgba(16, 42, 67, 0.08)),
+    url("../img/wiciphoto/76.jpg");
+}
+
+.image-fill-contact-aside {
+  background-image:
+    linear-gradient(150deg, rgba(16, 42, 67, 0.28), rgba(16, 42, 67, 0.12)),
+    url("../img/wiciphoto/77.jpg");
 }
 
 .partner-logo-grid .partner-logo-card {
@@ -2018,7 +2135,7 @@ body.lightbox-open {
 .cta-section {
   color: #fff;
   background-image: linear-gradient(110deg, rgba(11, 31, 53, 0.95), rgba(22, 58, 93, 0.9)),
-    url("../img/wiciphoto/1.jpg");
+    url("../img/wiciphoto/63.jpg");
   background-size: cover;
   background-position: center;
   border-top: 4px solid var(--wici-gold);
@@ -2210,11 +2327,11 @@ a.footer-contact-strong:focus-visible {
   }
 
   .hero-section {
-    min-height: 88svh;
+    min-height: 74svh;
   }
 
   .hero-content-panel {
-    min-height: 88svh;
+    min-height: 74svh;
   }
 
   .hero-inner {
@@ -2388,6 +2505,89 @@ a.footer-contact-strong:focus-visible {
     padding-bottom: 3rem;
   }
 
+  .hero-stack {
+    padding: 1rem 0.9rem;
+    border-radius: 1rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.45rem, 7vw, 1.8rem);
+    line-height: 1.24;
+  }
+
+  .hero-inner .lead {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem !important;
+  }
+
+  .hero-cta-group {
+    width: 100%;
+    gap: 0.65rem !important;
+  }
+
+  .hero-cta-group .btn {
+    flex: 1 1 100%;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-impact-card {
+    padding: 1.1rem;
+  }
+
+  .hero-impact-stats {
+    gap: 0.5rem;
+  }
+
+  .hero-impact-stat {
+    padding: 0.62rem 0.5rem;
+  }
+
+  .section-soft,
+  .section-glass,
+  .impact-section,
+  .program-section-glass,
+  .site-main > section.py-5 {
+    padding-top: 2.3rem !important;
+    padding-bottom: 2.3rem !important;
+  }
+
+  .summary-video-section .section-intro {
+    margin-bottom: 1.2rem;
+  }
+
+  .platform-feature-image {
+    min-height: 250px;
+  }
+
+  .platform-highlights {
+    gap: 0.42rem;
+  }
+
+  .platform-highlights span {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .platform-card-image {
+    height: 122px;
+  }
+
+  .program-media {
+    min-height: 145px;
+  }
+
+  .cta-section {
+    border-radius: 14px;
+  }
+
+  .cta-section .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
   .hero-update-strip {
     gap: 0.5rem;
     padding: 0.62rem 0.7rem;
@@ -2416,6 +2616,28 @@ a.footer-contact-strong:focus-visible {
   .page-header.page-hero {
     min-height: 15.5rem;
     align-items: flex-end;
+  }
+}
+
+@media (max-width: 25em) {
+  .hero-section,
+  .hero-content-panel {
+    min-height: auto;
+  }
+
+  .hero-inner {
+    padding-top: 4.2rem;
+    padding-bottom: 2.4rem;
+  }
+
+  .badge-brand {
+    font-size: 0.7rem;
+    padding: 0.38rem 0.58rem;
+  }
+
+  .hero-impact-card .btn-brand,
+  .site-main > section.py-5 .cta-section .btn {
+    width: 100%;
   }
 }
 
